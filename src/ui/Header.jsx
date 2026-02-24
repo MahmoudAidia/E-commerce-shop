@@ -1,8 +1,7 @@
+import { Link } from "react-router";
 import styled from "styled-components";
 import Logo from "./Logo";
 import Wrapper from "./Wrapper";
-import { Link } from "react-router";
-import { style } from "@mui/system";
 import RightNav from "./RightNav";
 import MobileNav from "./MobileNav";
 
@@ -23,13 +22,15 @@ const ProductLink = styled(Link)`
 `;
 
 const HeaderWrapper = styled.header`
-  padding: 30px 0;
-  margin: 0 40px;
-  width: calc(100%- 80px);
+  margin: ${(props) => props.theme.margin};
+  padding: ${(props) => props.theme.padding};
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    margin: ${(props) => props.theme.marginSmall};
+  }
 `;
 
 function Header() {

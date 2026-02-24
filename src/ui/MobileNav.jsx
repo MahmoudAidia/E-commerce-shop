@@ -26,7 +26,7 @@ function MobileNav({ handleClick }) {
 
       {openNav && (
         <Modal isOpen={openNav} onClose={setOpenNav} title={"Navigation"}>
-          <MobileNavList />
+          <MobileNavList handleClick={setOpenNav} />
         </Modal>
       )}
     </MobileNavWrapper>

@@ -37,23 +37,29 @@ const NavLink = styled(Link)`
     text-decoration: none;
   }
 `;
-function MobileNavList() {
+function MobileNavList({ handleClick }) {
   return (
     <MobileList>
       <ListItem>
-        <NavLink to="/">Products</NavLink>
+        <NavLink onClick={() => handleClick(false)} to="/">
+          Products
+        </NavLink>
       </ListItem>
       <ListItem>
-        <NavLink to="/cart">
+        <NavLink onClick={() => handleClick(false)} to="/cart">
           <ShoppingCartOutlinedIcon />
           Cart
         </NavLink>
       </ListItem>
       <ListItem>
-        <NavLink to="/login">Login</NavLink>
+        <NavLink onClick={() => handleClick(false)} to="/login">
+          Login
+        </NavLink>
       </ListItem>
       <ListItem>
-        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink onClick={() => handleClick(false)} to="/signup">
+          Sign Up
+        </NavLink>
       </ListItem>
     </MobileList>
   );

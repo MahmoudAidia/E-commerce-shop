@@ -11,6 +11,8 @@ import Cart from "./pages/Cart.jsx";
 import Products from "./pages/Products.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Product from "./pages/Product.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Products />,
+      },
+      {
+        path: "/product/:id",
+        element: <Product />,
       },
       {
         path: "/cart",
@@ -36,14 +42,27 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 2, // Data is fresh for 2 minutes
+      cacheTime: 1000 * 60 * 10, // Inactive queries are cached for 10 minutes
+      refetchOnWindowFocus: true, // automatic refetch on focus
+    },
+  },
+});
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <RouterProvider router={router}>
-        <Toaster />
-        <App />
-      </RouterProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router}>
+          <Toaster />
+          <App />
+        </RouterProvider>
+      </QueryClientProvider>
     </ThemeProvider>
   </StrictMode>,
 );
