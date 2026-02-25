@@ -9,7 +9,7 @@ export async function fetchAllProducts(id = null) {
     return data;
   } catch (err) {
     showErrorToast("Something went wrong, Couldn't get products");
-    console.error("Data didn't get fetched");
+    console.error("Data didn'wt get fetched");
     throw new Error("Data didn't get fetched");
   }
 }

@@ -22,8 +22,13 @@ const ProductLink = styled(Link)`
   }
 `;
 
+const ProductsNav = styled.div`
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
 const HeaderWrapper = styled.header`
-  margin: ${(props) => props.theme.margin};
+  margin: 0 50px;
   padding: ${(props) => props.theme.padding};
   height: 50px;
   display: flex;
@@ -39,24 +44,28 @@ function Header() {
     <Wrapper>
       <HeaderWrapper>
         <Logo />
-        <StyledLink
-          style={{
-            border: "none",
-            fontSize: "16px",
-          }}
-          to="/"
-        >
-          Products
-        </StyledLink>
-        <StyledLink
-          to="/addProduct"
-          style={{
-            border: "none",
-            fontSize: "16px",
-          }}
-        >
-          Create Product
-        </StyledLink>
+        <ProductsNav>
+          <StyledLink
+            style={{
+              border: "none",
+              fontSize: "16px",
+            }}
+            to="/"
+          >
+            Products
+          </StyledLink>
+        </ProductsNav>
+        <ProductsNav>
+          <StyledLink
+            to="/addProduct"
+            style={{
+              border: "none",
+              fontSize: "16px",
+            }}
+          >
+            Create Product
+          </StyledLink>
+        </ProductsNav>
         <RightNav />
         <MobileNav />
       </HeaderWrapper>

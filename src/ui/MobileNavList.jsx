@@ -1,7 +1,8 @@
+import { Link } from "react-router";
+
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import styled from "styled-components";
 import Button from "./Button";
-import { Link } from "react-router";
 
 const MobileList = styled.ul`
   list-style: none;
@@ -25,6 +26,7 @@ const ListItem = styled.li`
 const NavLink = styled(Link)`
   &:visited,
   &:link {
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,6 +39,7 @@ const NavLink = styled(Link)`
     text-decoration: none;
   }
 `;
+
 function MobileNavList({ handleClick }) {
   return (
     <MobileList>
@@ -45,6 +48,13 @@ function MobileNavList({ handleClick }) {
           Products
         </NavLink>
       </ListItem>
+
+      <ListItem>
+        <NavLink to="/addProduct" onClick={() => handleClick(false)}>
+          Create Product
+        </NavLink>
+      </ListItem>
+
       <ListItem>
         <NavLink onClick={() => handleClick(false)} to="/cart">
           <ShoppingCartOutlinedIcon />

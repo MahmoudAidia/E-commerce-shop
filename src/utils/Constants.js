@@ -1,6 +1,45 @@
 export const BASE_URL = "https://fakestoreapi.com";
 export const PAGINATION_SIZE = 10;
-
+export const LOGIN_INPUTS = [
+  {
+    type: "text",
+    label: "Username",
+    name: "username",
+    placeHolder: "Enter your name",
+  },
+  {
+    type: "password",
+    label: "Password",
+    name: "password",
+    placeHolder: "*******",
+  },
+];
+export const SIGNUP_INPUTS = [
+  {
+    type: "text",
+    label: "Username",
+    name: "username",
+    placeHolder: "Enter your Name",
+  },
+  {
+    type: "email",
+    label: "Email",
+    name: "email",
+    placeHolder: "email@example.com",
+  },
+  {
+    type: "password",
+    label: "Password",
+    name: "password",
+    placeHolder: "*******",
+  },
+  {
+    type: "password",
+    label: "Confirm Password",
+    name: "confirmPassword",
+    placeHolder: "*******",
+  },
+];
 export const FORM_INPUTS = [
   {
     type: "text",

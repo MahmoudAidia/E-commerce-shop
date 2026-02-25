@@ -30,9 +30,9 @@ const ButtonWrapper = styled(Link)`
   }
 `;
 
-function Button({ children, primary = false, page }) {
+function Button({ type, style, children, primary = false, page }) {
   return (
-    <ButtonWrapper $primary={primary} to={page}>
+    <ButtonWrapper type={type} style={style} $primary={primary} to={page}>
       {children}
     </ButtonWrapper>
   );

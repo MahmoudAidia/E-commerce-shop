@@ -3,7 +3,7 @@ import { useProducts } from "../features/products/useProducts";
 
 import styled from "styled-components";
 import CreateProductHeader from "../features/products/CreateProductHeader";
-import Form from "../features/products/Form";
+import CreateProductForm from "../features/products/CreateProuctForm";
 
 const CreateProductPage = styled.div`
   width: 100%;
@@ -18,7 +18,7 @@ function CreateProduct() {
   return (
     <CreateProductPage>
       <CreateProductHeader />
-      <Form categories={categories.slice(1)} />
+      <CreateProductForm categories={categories.slice(1)} />
     </CreateProductPage>
   );
 }

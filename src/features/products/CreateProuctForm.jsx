@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { formatCurrency } from "../../utils/helper";
+import { formatCurrency, handleProudctInputs } from "../../utils/helper";
 import { usePostProduct } from "./usePostProduct";
-
-import styled from "styled-components";
-import InputItem from "./InputItem";
 import { SpinnerSmall } from "../../ui/Spinner";
 import { showErrorToast } from "../../ui/Toasts";
 import { FORM_INPUTS } from "../../utils/Constants";
+
+import styled from "styled-components";
+import InputItem from "./InputItem";
 
 const FormBox = styled.form`
   padding: 20px;
@@ -30,7 +30,7 @@ const Button = styled.button`
     background-color: ${(props) => props.theme.colors.hoverPrimary};
   }
 `;
-function Form({ categories }) {
+function CreateProductForm({ categories }) {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -48,9 +48,10 @@ function Form({ categories }) {
     url,
     setUrl,
   };
+
   const { mutateAsync, isError, isPending } = usePostProduct();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     const product = {
       title,
@@ -60,28 +61,11 @@ function Form({ categories }) {
       url,
       id: Math.random() * 10000,
     };
-    if (!product.title) {
-      showErrorToast("Please enter title");
+
+    if (!handleProudctInputs(product)) {
       return;
     }
-    if (!product.price) {
-      showErrorToast("Please enter price");
-      return;
-    }
-    if (!product.description) {
-      showErrorToast("Please enter description");
-      return;
-    }
-    if (!product.category) {
-      showErrorToast("Please enter category");
-      return;
-    }
-    if (!product.url) {
-      showErrorToast("Please enter image URL");
-      return;
-    }
-    product.id = Math.random() * 1000;
-    mutateAsync(product);
+    await mutateAsync(product);
     setTitle("");
     setDescription("");
     setCategory("");
@@ -107,4 +91,4 @@ function Form({ categories }) {
   );
 }
 
-export default Form;
+export default CreateProductForm;

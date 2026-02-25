@@ -1,6 +1,8 @@
-import styled from "styled-components";
 import { Link } from "react-router";
+
+import styled from "styled-components";
 import StoreOutlinedIcon from "@mui/icons-material/StoreOutlined";
+
 const LogoWrapper = styled(Link)`
   display: flex;
   align-items: center;
