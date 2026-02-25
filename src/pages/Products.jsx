@@ -1,3 +1,4 @@
+import { showErrorToast } from "../ui/Toasts";
 import { useProducts } from "../features/products/useProducts";
 import { filterProducts, getCategories, sortProducts } from "../utils/helper";
 import { useState } from "react";
@@ -9,9 +10,6 @@ import ProductsList from "../features/products/ProductsList";
 import Spinner from "../ui/Spinner";
 import styled from "styled-components";
 
-const ProductsPage = styled.div`
-  height: 100vh;
-`;
 function Products() {
   const { products, isError, isLoading } = useProducts();
   const [displayedProducts, setDisplayedProducts] = useState({
@@ -21,13 +19,11 @@ function Products() {
     filter: "all",
   });
 
-  if (isLoading)
-    return (
-      <ProductsPage>
-        <Spinner />;
-      </ProductsPage>
-    );
-  if (isError) return <p>Couldn't fetch data</p>;
+  if (isLoading) return <Spinner />;
+  if (isError) {
+    showErrorToast("Something went wrong.");
+    return;
+  }
 
   let result = products?.slice(displayedProducts.start, displayedProducts.end);
   const categories = getCategories(result);

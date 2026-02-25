@@ -6,6 +6,10 @@ const spin = keyframes`
   }
 `;
 
+const Container = styled.div`
+  height: 100vh;
+`;
+
 export const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -28,9 +32,11 @@ export const SpinnerItem = styled.div`
 
 const Spinner = ({ size = "large" }) => {
   return (
-    <LoaderContainer>
-      <SpinnerItem $size={size} />
-    </LoaderContainer>
+    <Container>
+      <LoaderContainer>
+        <SpinnerItem $size={size} />
+      </LoaderContainer>
+    </Container>
   );
 };
 

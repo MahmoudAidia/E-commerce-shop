@@ -20,8 +20,11 @@ const Div = styled.div`
 function Card({ item }) {
   return (
     <Div>
-      <Category text={item.category} />
-      <ProductImg img={item.image} />
+      <Category
+        text={item?.category}
+        position={{ top: "10px", right: "10px" }}
+      />
+      <ProductImg img={item?.image} />
       <ProductText item={item} />
     </Div>
   );

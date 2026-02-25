@@ -1,8 +1,8 @@
 export const theme = {
   colors: {
-    primary: "#6366F1",
+    primary: "#4043f5",
     secondary: "#fff",
-    hoverPrimary: "#6365f1c8",
+    hoverPrimary: "#585bf9",
     hoverSecondary: "#dddddd68",
   },
   padding: "30px 0",

@@ -8,8 +8,21 @@ export function useProducts() {
     isError,
   } = useQuery({
     queryKey: ["products"],
-    queryFn: fetchAllProducts,
+    queryFn: () => fetchAllProducts(),
   });
 
   return { products, isLoading, isError };
+}
+
+export function useProduct(id) {
+  const {
+    data: product,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["product", id],
+    queryFn: () => fetchAllProducts(id),
+  });
+
+  return { product, isLoading, isError };
 }

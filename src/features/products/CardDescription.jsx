@@ -24,7 +24,7 @@ function CardDescription({ desc, id }) {
     <Description>
       <span>
         {desc.split(" ").slice(0, 20).join(" ")}
-        <ShowMore to={`/product/:${id}`}>view more</ShowMore>
+        <ShowMore to={`/product/${id}`}>view more</ShowMore>
       </span>
     </Description>
   );

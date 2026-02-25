@@ -60,7 +60,7 @@ const ViewDetails = styled(Link)`
 function CardButtons({ id }) {
   return (
     <ButtonBox>
-      <ViewDetails to={`/product/:${id}`}>
+      <ViewDetails to={`/product/${id}`}>
         <VisibilityOutlinedIcon />
         View Details
       </ViewDetails>

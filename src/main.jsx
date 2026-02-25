@@ -56,10 +56,16 @@ const queryClient = new QueryClient({
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 4000,
+        }}
+      />
       <GlobalStyles />
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router}>
-          <Toaster />
           <App />
         </RouterProvider>
       </QueryClientProvider>

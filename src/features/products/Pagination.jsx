@@ -3,6 +3,7 @@ import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
 import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import { PAGINATION_SIZE } from "../../utils/Constants";
 import { useState } from "react";
+import { showSuccessToast } from "../../ui/Toasts";
 
 const PaginationWrapper = styled.div`
   display: flex;
