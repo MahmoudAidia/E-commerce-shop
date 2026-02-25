@@ -8,12 +8,19 @@ const Box = styled.div`
   > h3 {
     margin-bottom: 10px;
   }
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 const Counter = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 const Button = styled.button`

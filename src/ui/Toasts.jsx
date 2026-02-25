@@ -58,7 +58,7 @@ const Content = styled.div`
     font-size: 13px;
     opacity: 0.8;
     margin-top: 2px;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
   }
 `;
 

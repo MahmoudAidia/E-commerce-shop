@@ -4,6 +4,7 @@ import Logo from "./Logo";
 import Wrapper from "./Wrapper";
 import RightNav from "./RightNav";
 import MobileNav from "./MobileNav";
+import StyledLink from "./StyledLink";
 
 const ProductLink = styled(Link)`
   text-decoration: none;
@@ -38,7 +39,24 @@ function Header() {
     <Wrapper>
       <HeaderWrapper>
         <Logo />
-        <ProductLink to="/">Products</ProductLink>
+        <StyledLink
+          style={{
+            border: "none",
+            fontSize: "16px",
+          }}
+          to="/"
+        >
+          Products
+        </StyledLink>
+        <StyledLink
+          to="/addProduct"
+          style={{
+            border: "none",
+            fontSize: "16px",
+          }}
+        >
+          Create Product
+        </StyledLink>
         <RightNav />
         <MobileNav />
       </HeaderWrapper>

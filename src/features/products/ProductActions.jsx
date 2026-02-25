@@ -1,12 +1,20 @@
-import styled from "styled-components";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
+import styled from "styled-components";
 import StyledLink from "../../ui/StyledLink";
-
 const Box = styled.div`
   display: flex;
   align-items: center;
   margin-top: 20px;
   gap: 15px;
+  margin-bottom: 50px;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+  }
 `;
 
 const Btn = styled.button`
@@ -37,8 +45,8 @@ function ProductActions() {
         Add To Cart
       </Btn>
       <StyledLink to={"/"} style={{ width: "180px" }}>
-        <ShoppingCartOutlinedIcon />
-        Continue Shopping
+        <ArrowBackOutlinedIcon />
+        Back To Products
       </StyledLink>
     </Box>
   );

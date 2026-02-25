@@ -2,13 +2,12 @@ import { showErrorToast } from "../ui/Toasts";
 import { useProducts } from "../features/products/useProducts";
 import { filterProducts, getCategories, sortProducts } from "../utils/helper";
 import { useState } from "react";
+import { Spinner } from "../ui/Spinner";
 
 import FilterResult from "../features/products/FilterResult";
 import Manipulation from "../features/products/Manipulation";
 import ProductsHeader from "../features/products/ProductsHeader";
 import ProductsList from "../features/products/ProductsList";
-import Spinner from "../ui/Spinner";
-import styled from "styled-components";
 
 function Products() {
   const { products, isError, isLoading } = useProducts();

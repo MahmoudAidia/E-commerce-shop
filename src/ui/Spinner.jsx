@@ -30,7 +30,7 @@ export const SpinnerItem = styled.div`
   height: ${(props) => (props.$size === "large" ? "50px" : "25px")};
 `;
 
-const Spinner = ({ size = "large" }) => {
+export const Spinner = ({ size = "large" }) => {
   return (
     <Container>
       <LoaderContainer>
@@ -40,4 +40,10 @@ const Spinner = ({ size = "large" }) => {
   );
 };
 
-export default Spinner;
+export const SpinnerSmall = ({ size = "small" }) => {
+  return (
+    <LoaderContainer>
+      <SpinnerItem $size={size} />
+    </LoaderContainer>
+  );
+};

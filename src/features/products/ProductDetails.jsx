@@ -21,6 +21,11 @@ const ProductDescription = styled.div`
   > h3 {
     margin-bottom: 5px;
   }
+  > p {
+    @media (max-width: 768px) {
+      text-align: start;
+    }
+  }
 `;
 
 function ProductDetails({ product }) {

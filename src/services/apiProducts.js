@@ -13,3 +13,14 @@ export async function fetchAllProducts(id = null) {
     throw new Error("Data didn't get fetched");
   }
 }
+
+export async function postProduct(product) {
+  try {
+    const { data } = await axios.post(`${BASE_URL}/products`, product);
+    return data;
+  } catch (err) {
+    showErrorToast("Didn't send product to server");
+    console.error("Didn't send product to server");
+    throw new Error("Didn't send product to server");
+  }
+}
