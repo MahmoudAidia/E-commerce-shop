@@ -10,7 +10,7 @@ const List = styled.ul`
   flex-wrap: wrap;
   column-gap: 20px;
   row-gap: 20px;
-  margin: ${(props) => props.theme.margin};
+  margin: ${(props) => props.theme.marginSmall};
 
   @media (max-width: 768px) {
     margin: ${(props) => props.theme.marginSmall};

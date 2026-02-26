@@ -1,15 +1,11 @@
-import { Outlet } from "react-router-dom";
-
-import styled from "styled-components";
-import Header from "./ui/Header";
-import Footer from "./ui/Footer";
+import Products from "./pages/Products";
+import Layout from "./ui/Layout";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Outlet />
-    </div>
+    <Layout>
+      <Products />
+    </Layout>
   );
 }
 

@@ -6,7 +6,7 @@ const LinkElm = styled(Link)`
   &:visited {
     font-size: 14px;
     color: #222;
-    width: 140px;
+    width: 100%;
     text-decoration: none;
     border: 1px solid #999;
     padding: 10px;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import SignupForm from "../features/authentication/SignupForm";
+import Layout from "../ui/Layout";
 
 const SignupWrapper = styled.div`
   width: 100%;
@@ -12,9 +13,11 @@ const SignupWrapper = styled.div`
 
 function Signup() {
   return (
-    <SignupWrapper>
-      <SignupForm />
-    </SignupWrapper>
+    <Layout>
+      <SignupWrapper>
+        <SignupForm />
+      </SignupWrapper>
+    </Layout>
   );
 }
 

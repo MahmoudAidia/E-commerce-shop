@@ -47,7 +47,8 @@ function SignupForm() {
       password: user.password,
     };
 
-    const { data, status } = await mutateAsync(newUser);
+    const { id } = await mutateAsync(newUser);
+
     setUser({
       username: "",
       password: "",

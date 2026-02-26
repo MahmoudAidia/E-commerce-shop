@@ -3,6 +3,8 @@ import Category from "../../features/products/Category";
 import Quantity from "./Quantity";
 import { useState } from "react";
 import ProductActions from "./ProductActions";
+import { useCart } from "../../context/CartContext";
+import { showSuccessToast } from "../../ui/Toasts";
 
 const ProductDetailsBox = styled.div`
   width: 100%;
@@ -29,8 +31,17 @@ const ProductDescription = styled.div`
 `;
 
 function ProductDetails({ product }) {
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(1);
+  const { addItem } = useCart();
 
+  function handleAddToCart() {
+    for (let i = 0; i < counter; i++) {
+      addItem(product);
+    }
+    showSuccessToast(
+      `${product.title.split(" ").slice(0, 3).join(" ")} was add to the cart.`,
+    );
+  }
   return (
     <ProductDetailsBox>
       <Category
@@ -42,8 +53,13 @@ function ProductDetails({ product }) {
         <h3>Description:</h3>
         <p>{product.description}</p>
       </ProductDescription>
-      <Quantity counter={counter} setCounter={setCounter} />
-      <ProductActions />
+      <Quantity
+        counter={counter}
+        setCounter={setCounter}
+        usedFor="view"
+        item={product}
+      />
+      <ProductActions product={product} handleAddToCart={handleAddToCart} />
     </ProductDetailsBox>
   );
 }

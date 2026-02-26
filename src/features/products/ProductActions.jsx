@@ -1,7 +1,9 @@
+import { useCart } from "../../context/CartContext";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 import styled from "styled-components";
-import StyledLink from "../../ui/StyledLink";
+import BackToProducts from "../../ui/BackToProducts";
+import { showSuccessToast } from "../../ui/Toasts";
+
 const Box = styled.div`
   display: flex;
   align-items: center;
@@ -37,17 +39,14 @@ const Btn = styled.button`
     background-color: ${(props) => props.theme.colors.hoverPrimary};
   }
 `;
-function ProductActions() {
+function ProductActions({ handleAddToCart }) {
   return (
     <Box>
-      <Btn>
+      <Btn onClick={handleAddToCart}>
         <ShoppingCartOutlinedIcon />
         Add To Cart
       </Btn>
-      <StyledLink to={"/"} style={{ width: "180px" }}>
-        <ArrowBackOutlinedIcon />
-        Back To Products
-      </StyledLink>
+      <BackToProducts />
     </Box>
   );
 }

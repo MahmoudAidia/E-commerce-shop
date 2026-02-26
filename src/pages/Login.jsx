@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import LoginForm from "../features/authentication/LoginForm";
+import Layout from "../ui/Layout";
+
 const LoginWrapper = styled.div`
   width: 100%;
   max-width: 500px;
@@ -10,9 +12,11 @@ const LoginWrapper = styled.div`
 `;
 function Login() {
   return (
-    <LoginWrapper className="login">
-      <LoginForm />
-    </LoginWrapper>
+    <Layout>
+      <LoginWrapper>
+        <LoginForm />
+      </LoginWrapper>
+    </Layout>
   );
 }
 

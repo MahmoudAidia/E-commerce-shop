@@ -1,5 +1,6 @@
 import { getCategories } from "../utils/helper";
 import { useProducts } from "../features/products/useProducts";
+import Layout from "../ui/Layout";
 
 import styled from "styled-components";
 import CreateProductHeader from "../features/products/CreateProductHeader";
@@ -15,11 +16,14 @@ const CreateProductPage = styled.div`
 function CreateProduct() {
   const { products } = useProducts();
   const categories = getCategories(products);
+
   return (
-    <CreateProductPage>
-      <CreateProductHeader />
-      <CreateProductForm categories={categories.slice(1)} />
-    </CreateProductPage>
+    <Layout>
+      <CreateProductPage>
+        <CreateProductHeader />
+        <CreateProductForm categories={categories.slice(1)} />
+      </CreateProductPage>
+    </Layout>
   );
 }
 

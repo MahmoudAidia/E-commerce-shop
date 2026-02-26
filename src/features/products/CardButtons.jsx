@@ -2,6 +2,8 @@ import { Link } from "react-router";
 import styled from "styled-components";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import { useCart } from "../../context/CartContext";
+import { showSuccessToast } from "../../ui/Toasts";
 
 const ButtonBox = styled.div`
   display: flex;
@@ -12,6 +14,9 @@ const ButtonBox = styled.div`
   bottom: 20px;
   left: 50%;
   transform: translate(-50%);
+  @media (max-width: 450px) {
+    flex-direction: column;
+  }
 `;
 
 const AddToCart = styled.button`
@@ -57,14 +62,21 @@ const ViewDetails = styled(Link)`
   }
 `;
 
-function CardButtons({ id }) {
+function CardButtons({ id, item }) {
+  const { addItem } = useCart();
+  function handleAddToCart() {
+    addItem(item);
+    showSuccessToast(
+      `${item.title.split(" ").slice(0, 3).join(" ")} was add to the cart.`,
+    );
+  }
   return (
     <ButtonBox>
       <ViewDetails to={`/product/${id}`}>
         <VisibilityOutlinedIcon />
         View Details
       </ViewDetails>
-      <AddToCart>
+      <AddToCart onClick={handleAddToCart}>
         <ShoppingCartOutlinedIcon />
         Add To Cart
       </AddToCart>

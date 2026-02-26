@@ -8,6 +8,7 @@ import FilterResult from "../features/products/FilterResult";
 import Manipulation from "../features/products/Manipulation";
 import ProductsHeader from "../features/products/ProductsHeader";
 import ProductsList from "../features/products/ProductsList";
+import Empty from "../ui/Empty";
 
 function Products() {
   const { products, isError, isLoading } = useProducts();
@@ -29,7 +30,7 @@ function Products() {
 
   result = filterProducts(result, displayedProducts.filter);
   let sortedResults = sortProducts([...result], displayedProducts.sort);
-
+  if (!sortedResults.length) return <Empty>There are no products.</Empty>;
   return (
     <div>
       <ProductsHeader productsNum={products?.length} />

@@ -8,4 +8,5 @@ export const theme = {
   padding: "30px 0",
   margin: " 0 100px",
   marginSmall: "0 30px",
+  paddingSmall: "0 30px",
 };

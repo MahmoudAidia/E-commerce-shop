@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
@@ -11,40 +12,35 @@ import Cart from "./pages/Cart.jsx";
 import Products from "./pages/Products.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Product from "./pages/Product.jsx";
 import CreateProduct from "./pages/CreateProduct.jsx";
+import { CartProvider } from "./context/CartContext.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Products />,
-      },
-      {
-        path: "/product/:id",
-        element: <Product />,
-      },
-      {
-        path: "/addProduct",
-        element: <CreateProduct />,
-      },
-      {
-        path: "/cart",
-        element: <Cart />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/signup",
-        element: <Signup />,
-      },
-    ],
+  },
+
+  {
+    path: "/product/:id",
+    element: <Product />,
+  },
+  {
+    path: "/addProduct",
+    element: <CreateProduct />,
+  },
+  {
+    path: "/cart",
+    element: <Cart />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
   },
 ]);
 
@@ -60,20 +56,22 @@ const queryClient = new QueryClient({
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ThemeProvider theme={theme}>
-      <Toaster
-        position="top-right"
-        reverseOrder={false}
-        toastOptions={{
-          duration: 4000,
-        }}
-      />
-      <GlobalStyles />
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router}>
-          <App />
-        </RouterProvider>
-      </QueryClientProvider>
-    </ThemeProvider>
+    <CartProvider>
+      <ThemeProvider theme={theme}>
+        <Toaster
+          position="top-right"
+          reverseOrder={false}
+          toastOptions={{
+            duration: 4000,
+          }}
+        />
+        <GlobalStyles />
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router}>
+            <App />
+          </RouterProvider>
+        </QueryClientProvider>
+      </ThemeProvider>
+    </CartProvider>
   </StrictMode>,
 );

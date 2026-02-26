@@ -24,6 +24,7 @@ const slideOut = keyframes`
   }
 `;
 const ToastWrapper = styled.div`
+  margin-top: 40px;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -58,16 +59,14 @@ const Content = styled.div`
     font-size: 13px;
     opacity: 0.8;
     margin-top: 2px;
-    /* text-transform: capitalize; */
   }
 `;
 
-// --- Toast functions ---
 export const showSuccessToast = (message) => {
   toast.custom((t) => (
     <ToastWrapper visible={t.visible}>
       <IconWrapper type="success">
-        <CheckCircle size={20} />
+        <CheckCircle size={30} />
       </IconWrapper>
       <Content>
         <span className="message">{message}</span>
@@ -80,7 +79,7 @@ export const showErrorToast = (message) => {
   toast.custom((t) => (
     <ToastWrapper visible={t.visible}>
       <IconWrapper type="error">
-        <XCircle size={20} />
+        <XCircle size={30} />
       </IconWrapper>
       <Content>
         <span className="message">{message}</span>

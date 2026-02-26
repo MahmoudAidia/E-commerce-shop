@@ -6,6 +6,7 @@ import { Spinner } from "../ui/Spinner";
 import styled from "styled-components";
 import ProductImage from "../features/products/ProductImage";
 import ProductDetails from "../features/products/ProductDetails";
+import Layout from "../ui/Layout";
 
 const ProductPage = styled.div`
   height: 90vh;
@@ -31,10 +32,12 @@ function Product() {
     return;
   }
   return (
-    <ProductPage>
-      <ProductImage image={product.image} />
-      <ProductDetails product={product} />
-    </ProductPage>
+    <Layout>
+      <ProductPage>
+        <ProductImage image={product.image} />
+        <ProductDetails product={product} />
+      </ProductPage>
+    </Layout>
   );
 }
 

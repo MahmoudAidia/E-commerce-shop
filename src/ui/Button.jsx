@@ -4,6 +4,8 @@ import styled from "styled-components";
 const ButtonWrapper = styled(Link)`
   &:link,
   &:visited {
+    position: relative;
+    font-size: 14px;
     width: fit-content;
     height: fit-content;
     display: flex;
@@ -12,7 +14,7 @@ const ButtonWrapper = styled(Link)`
     border-radius: 5px;
     border: 1px solid #9999993a;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 10px;
     background-color: ${(props) =>
       props?.$primary
         ? props.theme.colors.primary

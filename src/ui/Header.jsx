@@ -1,26 +1,9 @@
 import { Link } from "react-router";
 import styled from "styled-components";
 import Logo from "./Logo";
-import Wrapper from "./Wrapper";
 import RightNav from "./RightNav";
 import MobileNav from "./MobileNav";
 import StyledLink from "./StyledLink";
-
-const ProductLink = styled(Link)`
-  text-decoration: none;
-  font-size: 18px;
-  &:link,
-  &:visited {
-    color: #222;
-  }
-  &:hover,
-  &:active {
-    color: #333;
-  }
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
 
 const ProductsNav = styled.div`
   @media (max-width: 768px) {
@@ -28,48 +11,54 @@ const ProductsNav = styled.div`
   }
 `;
 const HeaderWrapper = styled.header`
-  margin: 0 50px;
-  padding: ${(props) => props.theme.padding};
-  height: 50px;
+  /* padding: ${(props) => props.theme.padding}; */
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media (max-width: 768px) {
-    margin: ${(props) => props.theme.marginSmall};
-  }
+  position: fixed;
+  width: 100%;
+  padding: 0px 30px;
+  top: 0px;
+  right: 50%;
+  transform: translate(50%);
+  z-index: 100;
+  background-color: #fff;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
 `;
 
 function Header() {
   return (
-    <Wrapper>
-      <HeaderWrapper>
-        <Logo />
-        <ProductsNav>
-          <StyledLink
-            style={{
-              border: "none",
-              fontSize: "16px",
-            }}
-            to="/"
-          >
-            Products
-          </StyledLink>
-        </ProductsNav>
-        <ProductsNav>
-          <StyledLink
-            to="/addProduct"
-            style={{
-              border: "none",
-              fontSize: "16px",
-            }}
-          >
-            Create Product
-          </StyledLink>
-        </ProductsNav>
-        <RightNav />
-        <MobileNav />
-      </HeaderWrapper>
-    </Wrapper>
+    <HeaderWrapper>
+      <Logo />
+      <ProductsNav>
+        <StyledLink
+          style={{
+            border: "none",
+            fontSize: "16px",
+            textAlign: "center",
+          }}
+          to="/"
+        >
+          Products
+        </StyledLink>
+      </ProductsNav>
+
+      <ProductsNav>
+        <StyledLink
+          to="/addProduct"
+          style={{
+            border: "none",
+            fontSize: "16px",
+            textAlign: "center",
+          }}
+        >
+          Create Product
+        </StyledLink>
+      </ProductsNav>
+      <RightNav />
+      <MobileNav />
+    </HeaderWrapper>
   );
 }
 

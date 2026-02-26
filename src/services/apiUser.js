@@ -1,18 +1,16 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/Constants";
-import { showErrorToast } from "../ui/Toasts";
 
-export async function createUser(user) {
+export async function createUser({ username, email, password }) {
   try {
-    const { data } = await axios.post(`${BASE_URL}/users`, user);
-    if (!data.id) {
-      showErrorToast("The data sent back from API is not user");
-      return;
-    }
+    const { data } = await axios.post(`${BASE_URL}/users`, {
+      username,
+      email,
+      password,
+    });
     return data;
   } catch (error) {
-    const message = error.response?.data?.message || "Error signing up";
-    showErrorToast(message);
+    const message = error.response?.data?.message || "Failed to create user";
     throw new Error(message);
   }
 }
@@ -29,3 +27,23 @@ export async function loginUser(user) {
     throw new Error(message);
   }
 }
+
+// createUser({
+//   username: "Mahmoud",
+//   email: "mahmoud@example.com",
+//   password: "123456",
+// })
+//   .then((data) => {
+//     console.log("User created:", data);
+//   })
+//   .catch((error) => {
+//     console.error("Signup error:", error.message);
+//   });
+
+const data = await createUser({
+  username: "Ahvvvabeabermoud",
+  email: "test@gmail.com",
+  password: "124varba586",
+});
+
+console.log(data);

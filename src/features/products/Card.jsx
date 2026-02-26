@@ -15,6 +15,9 @@ const Div = styled.div`
   transition: all 0.4s;
   margin-bottom: 20px;
   border: 0.5px solid #ccc;
+  @media (max-width: 695px) {
+    width: 80%;
+  }
 `;
 
 function Card({ item }) {
