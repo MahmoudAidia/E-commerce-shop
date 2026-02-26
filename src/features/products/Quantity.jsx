@@ -49,7 +49,7 @@ function Quantity({ counter, setCounter, usedFor, item }) {
   }
   function handleDecrease() {
     if (usedFor === "view") {
-      setCounter((prev) => (prev -= 1));
+      setCounter((prev) => (prev > 0 ? (prev -= 1) : prev));
     } else {
       decreaseQty(item.id);
     }
