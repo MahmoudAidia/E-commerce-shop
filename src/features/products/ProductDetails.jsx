@@ -25,7 +25,7 @@ const ProductDescription = styled.div`
   }
   > p {
     @media (max-width: 768px) {
-      text-align: start;
+      text-align: center;
     }
   }
 `;
