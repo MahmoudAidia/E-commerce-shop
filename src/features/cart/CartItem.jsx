@@ -10,6 +10,11 @@ const Item = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
 `;
 
 const Delete = styled.button`
@@ -25,6 +30,14 @@ const Delete = styled.button`
   color: red;
   &:hover {
     background-color: #f184843f;
+  }
+
+  @media (max-width: 630px) {
+    flex-direction: column;
+  }
+  @media (max-width: 600px) {
+    margin-top: 20px;
+    flex-direction: row;
   }
 `;
 

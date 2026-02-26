@@ -27,7 +27,7 @@ const HeaderWrapper = styled.header`
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
 `;
 
-function Header() {
+function Header({ setOpenNav }) {
   return (
     <HeaderWrapper>
       <Logo />
@@ -57,7 +57,7 @@ function Header() {
         </StyledLink>
       </ProductsNav>
       <RightNav />
-      <MobileNav />
+      <MobileNav setOpenNav={setOpenNav} />
     </HeaderWrapper>
   );
 }

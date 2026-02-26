@@ -18,17 +18,10 @@ const MobileNavWrapper = styled.button`
   }
 `;
 
-function MobileNav({ handleClick }) {
-  const [openNav, setOpenNav] = useState(false);
+function MobileNav({ setOpenNav }) {
   return (
     <MobileNavWrapper onClick={() => setOpenNav(true)}>
       <MenuOutlinedIcon />
-
-      {openNav && (
-        <Modal isOpen={openNav} onClose={setOpenNav} title={"Navigation"}>
-          <MobileNavList handleClick={setOpenNav} />
-        </Modal>
-      )}
     </MobileNavWrapper>
   );
 }

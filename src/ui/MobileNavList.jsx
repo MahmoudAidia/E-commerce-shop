@@ -10,7 +10,8 @@ const MobileList = styled.ul`
   flex-direction: column;
   padding: 0;
   margin: 0;
-  gap: 5px;
+  gap: 15px;
+  padding: 10px;
 `;
 const ListItem = styled.li`
   padding: 10px 15px;
@@ -33,6 +34,8 @@ const NavLink = styled(Link)`
     width: 100%;
     color: #222;
     text-decoration: none;
+    font-weight: 500;
+    font-size: 20px;
   }
   &:hover,
   &:active {
@@ -44,7 +47,7 @@ function MobileNavList({ handleClick }) {
   return (
     <MobileList>
       <ListItem>
-        <NavLink onClick={() => handleClick(false)} to="/">
+        <NavLink to="/" onClick={() => handleClick(false)}>
           Products
         </NavLink>
       </ListItem>
@@ -56,18 +59,17 @@ function MobileNavList({ handleClick }) {
       </ListItem>
 
       <ListItem>
-        <NavLink onClick={() => handleClick(false)} to="/cart">
-          <ShoppingCartOutlinedIcon />
+        <NavLink to="/cart" onClick={() => handleClick(false)}>
           Cart
         </NavLink>
       </ListItem>
       <ListItem>
-        <NavLink onClick={() => handleClick(false)} to="/login">
+        <NavLink to="/login" onClick={() => handleClick(false)}>
           Login
         </NavLink>
       </ListItem>
       <ListItem>
-        <NavLink onClick={() => handleClick(false)} to="/signup">
+        <NavLink to="/signup" onClick={() => handleClick(false)}>
           Sign Up
         </NavLink>
       </ListItem>

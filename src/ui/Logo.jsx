@@ -6,6 +6,7 @@ import StoreOutlinedIcon from "@mui/icons-material/StoreOutlined";
 const LogoWrapper = styled(Link)`
   display: flex;
   align-items: center;
+  gap: 10px;
   font-size: 18px;
   &:link,
   &:visited {

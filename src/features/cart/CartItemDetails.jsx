@@ -6,6 +6,9 @@ const Details = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 
 const Image = styled.div`
@@ -20,6 +23,7 @@ const Image = styled.div`
 const DetailsText = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   > h3 {
     max-width: 80%;
     margin-bottom: 10px;
@@ -31,6 +35,11 @@ const DetailsText = styled.div`
   > p {
     font-weight: 700;
     color: ${(props) => props.theme.colors.primary};
+  }
+  @media (max-width: 600px) {
+    h3 {
+      max-width: 100%;
+    }
   }
 `;
 function CartItemDetails({ item }) {
