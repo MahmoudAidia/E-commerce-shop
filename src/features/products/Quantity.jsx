@@ -33,9 +33,6 @@ const Button = styled.button`
   align-items: center;
   font-size: 18px;
   border: 1px solid #99999961;
-  /* &:hover {
-    background-color: ${(props) => props.theme.colors.hoverSecondary};
-  } */
 `;
 
 function Quantity({ counter, setCounter, usedFor, item }) {

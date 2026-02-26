@@ -8,6 +8,7 @@ const EmptyWrapper = styled.h2`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 300px;
 `;
 function Empty({ children }) {
   return <EmptyWrapper>{children}</EmptyWrapper>;

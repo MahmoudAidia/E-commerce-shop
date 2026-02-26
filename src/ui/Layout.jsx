@@ -3,7 +3,7 @@ import Header from "./Header";
 
 export const Application = styled.div`
   margin-top: 100px;
-  height: 50vh;
+  padding-bottom: 30px;
 `;
 function Layout({ children }) {
   return (

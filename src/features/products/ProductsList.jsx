@@ -3,8 +3,6 @@ import Card from "./Card";
 
 const List = styled.ul`
   list-style: none;
-  /* display: grid;
-  grid-template-columns: repeat(auto, 1fr); */
   display: flex;
   align-items: center;
   flex-wrap: wrap;
